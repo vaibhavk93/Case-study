@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research Sources · Case Study Mastery</title>
+<meta name="description" content="Source directory for the Case Study Mastery playbook: 43 sources, categorised, with reliability assessments and verification status.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f6b63'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' font-weight='600' fill='%23fbfaf8' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<style>/* ===== Case Study Mastery — design system ===================================
+   Restrained editorial palette. Ink + warm paper + one accent (teal) and one
+   signal colour (amber) for traps. Everything themed through tokens so dark
+   mode is a token swap, not a second stylesheet. */
+
+:root{
+  --paper:#fbfaf8; --surface:#ffffff; --surface-2:#f4f2ee; --surface-3:#ece8e1;
+  --ink:#1a1a1a; --ink-2:#464646; --ink-3:#6d6a66; --line:#dcd7cf; --line-2:#c9c3b9;
+  --accent:#0f6b63; --accent-ink:#0b4e48; --accent-wash:#e3f0ee;
+  --amber:#8a5a00; --amber-wash:#fbf0db;
+  --violet:#4a3a7a; --violet-wash:#eceaf5;
+  --rose:#8a2f3f; --rose-wash:#f8e9ec;
+  --ok:#2f6a3f; --ok-wash:#e7f1e8;
+  --radius:10px; --radius-sm:6px;
+  --shadow:0 1px 2px rgba(26,26,26,.05),0 4px 14px rgba(26,26,26,.05);
+  --shadow-lg:0 2px 6px rgba(26,26,26,.07),0 18px 44px rgba(26,26,26,.09);
+  --serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:ui-sans-serif,-apple-system,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --sidebar-w:302px; --measure:74ch;
+}
+:root:not([data-theme="light"]) { }
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#15161a; --surface:#1b1d22; --surface-2:#222529; --surface-3:#2b2f35;
+    --ink:#eceae6; --ink-2:#bdbab4; --ink-3:#938f89; --line:#33373d; --line-2:#444a52;
+    --accent:#5fc6ba; --accent-ink:#8fd9d0; --accent-wash:#16302e;
+    --amber:#e0b060; --amber-wash:#33280f;
+    --violet:#aba1dd; --violet-wash:#232040;
+    --rose:#e495a2; --rose-wash:#371d23;
+    --ok:#7fc08c; --ok-wash:#192b1d;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 14px rgba(0,0,0,.3);
+    --shadow-lg:0 2px 6px rgba(0,0,0,.45),0 18px 44px rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15161a; --surface:#1b1d22; --surface-2:#222529; --surface-3:#2b2f35;
+  --ink:#eceae6; --ink-2:#bdbab4; --ink-3:#938f89; --line:#33373d; --line-2:#444a52;
+  --accent:#5fc6ba; --accent-ink:#8fd9d0; --accent-wash:#16302e;
+  --amber:#e0b060; --amber-wash:#33280f;
+  --violet:#aba1dd; --violet-wash:#232040;
+  --rose:#e495a2; --rose-wash:#371d23;
+  --ok:#7fc08c; --ok-wash:#192b1d;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 14px rgba(0,0,0,.3);
+  --shadow-lg:0 2px 6px rgba(0,0,0,.45),0 18px 44px rgba(0,0,0,.45);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+ *{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5{font-family:var(--serif);line-height:1.22;letter-spacing:-.011em;
+  color:var(--ink);margin:0 0 .5em}
+h1{font-size:clamp(1.95rem,1.3rem + 2.2vw,3rem);font-weight:600}
+h2{font-size:clamp(1.5rem,1.1rem + 1.4vw,2.1rem);font-weight:600;margin-top:2.4em}
+h3{font-size:1.3rem;font-weight:600;margin-top:2em}
+h4{font-size:1.08rem;font-weight:700;font-family:var(--sans);margin-top:1.7em;
+  letter-spacing:.004em}
+h5{font-size:.95rem;font-weight:700;font-family:var(--sans);margin-top:1.4em;
+  text-transform:uppercase;letter-spacing:.07em;color:var(--ink-3)}
+p{margin:0 0 1.05em;max-width:var(--measure)}
+ul,ol{margin:0 0 1.15em;padding-left:1.35em;max-width:var(--measure)}
+li{margin-bottom:.42em}
+li>ul,li>ol{margin-top:.42em;margin-bottom:.3em}
+a{color:var(--accent-ink);text-decoration-thickness:1px;text-underline-offset:2px}
+a:hover{color:var(--accent)}
+code{font-family:var(--mono);font-size:.875em;background:var(--surface-2);
+  border:1px solid var(--line);border-radius:4px;padding:.08em .34em}
+strong{font-weight:680}
+hr{border:0;border-top:1px solid var(--line);margin:2.4em 0}
+:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;border-radius:3px}
+[tabindex="-1"]:focus{outline:none}
+blockquote{margin:0 0 1.35em;padding:2px 0 2px 18px;border-left:3px solid var(--accent);
+  color:var(--ink-2);font-style:italic;max-width:var(--measure)}
+blockquote>*:last-child{margin-bottom:0}
+blockquote strong{color:var(--ink);font-style:normal}
+blockquote em{font-style:normal}
+blockquote code{font-style:normal}
+.callout blockquote,.details__body blockquote{border-left-color:var(--line-2)}
+
+/* ---- layout ---- */
+.app{display:grid;grid-template-columns:var(--sidebar-w) minmax(0,1fr);min-height:100vh}
+.sidebar{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--surface);
+  border-right:1px solid var(--line);display:flex;flex-direction:column;z-index:40}
+.main{min-width:0;display:flex;flex-direction:column}
+.content{padding:38px clamp(16px,4vw,60px) 140px;max-width:1120px;width:100%}
+
+/* ---- brand ---- */
+.brand{padding:20px 20px 14px;border-bottom:1px solid var(--line)}
+.brand__mark{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.brand__glyph{width:30px;height:30px;border-radius:7px;background:var(--accent);
+  color:#fff;display:grid;place-items:center;font-family:var(--serif);font-weight:600;
+  font-size:1rem;flex:none}
+:root[data-theme="dark"] .brand__glyph,
+.brand__glyph{color:var(--paper)}
+.brand__name{font-family:var(--serif);font-size:1.08rem;font-weight:600;line-height:1.15}
+.brand__sub{font-size:.715rem;color:var(--ink-3);letter-spacing:.055em;
+  text-transform:uppercase;margin-top:2px}
+.search{position:relative}
+.search input{width:100%;padding:9px 11px 9px 31px;border:1px solid var(--line-2);
+  border-radius:var(--radius-sm);background:var(--paper);color:var(--ink);
+  font-size:.86rem;font-family:var(--sans)}
+.search input::placeholder{color:var(--ink-3)}
+.search__icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);
+  color:var(--ink-3);font-size:.85rem;pointer-events:none}
+.search__hint{font-size:.68rem;color:var(--ink-3);margin-top:6px}
+
+/* ---- nav ---- */
+.nav{flex:1;padding:12px 10px 30px}
+.nav__group{margin-bottom:4px}
+.nav__grouptitle{font-size:.665rem;text-transform:uppercase;letter-spacing:.095em;
+  color:var(--ink-3);font-weight:700;padding:14px 10px 5px}
+.nav a{display:flex;gap:8px;align-items:baseline;padding:6px 10px;border-radius:var(--radius-sm);
+  color:var(--ink-2);text-decoration:none;font-size:.858rem;line-height:1.38}
+.nav a:hover{background:var(--surface-2);color:var(--ink)}
+.nav a.is-active{background:var(--accent-wash);color:var(--accent-ink);font-weight:620}
+.nav a .n{font-variant-numeric:tabular-nums;color:var(--ink-3);font-size:.76rem;
+  min-width:1.5em;flex:none}
+.nav a.is-active .n{color:var(--accent-ink)}
+.nav a .done{margin-left:auto;color:var(--ok);font-size:.8rem;flex:none}
+
+/* ---- topbar ---- */
+.topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:10px;
+  padding:9px clamp(16px,4vw,60px);background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar__crumb{font-size:.79rem;color:var(--ink-3);min-width:0;overflow:hidden;
+  text-overflow:ellipsis;white-space:nowrap;flex:1}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:6px 11px;border-radius:var(--radius-sm);
+  border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);
+  font-size:.79rem;font-family:var(--sans);cursor:pointer;white-space:nowrap}
+.btn:hover{background:var(--surface-2);color:var(--ink)}
+.btn--primary{background:var(--accent);border-color:var(--accent);color:var(--paper);font-weight:600}
+.btn--primary:hover{background:var(--accent-ink);color:var(--paper)}
+.btn--sm{padding:4px 9px;font-size:.74rem}
+.btn[aria-pressed="true"]{background:var(--accent-wash);border-color:var(--accent);
+  color:var(--accent-ink)}
+.menu-toggle{display:none}
+.progressbar{height:3px;background:var(--surface-3)}
+.progressbar__fill{height:100%;background:var(--accent);width:0;transition:width .3s}
+
+/* ---- panels / cards ---- */
+.panel{display:none}
+.panel.is-active{display:block;animation:fade .22s ease}
+@keyframes fade{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+.eyebrow{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700;
+  color:var(--accent-ink);margin-bottom:9px}
+.lede{font-size:1.12rem;color:var(--ink-2);max-width:68ch;line-height:1.6}
+.grid{display:grid;gap:14px}
+.grid--2{grid-template-columns:repeat(auto-fit,minmax(265px,1fr))}
+.grid--3{grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.grid--4{grid-template-columns:repeat(auto-fit,minmax(168px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:17px 18px;box-shadow:var(--shadow)}
+.card h4{margin-top:0}
+.card p:last-child,.card ul:last-child,.card ol:last-child{margin-bottom:0}
+.card--link{cursor:pointer;text-align:left;width:100%;font:inherit;color:inherit;display:block}
+.card--link:hover{border-color:var(--accent);box-shadow:var(--shadow-lg);transform:translateY(-1px)}
+.card--quiet{background:var(--surface-2);box-shadow:none}
+.stat{font-family:var(--serif);font-size:1.9rem;font-weight:600;line-height:1;
+  color:var(--accent-ink);font-variant-numeric:tabular-nums}
+.stat__label{font-size:.73rem;text-transform:uppercase;letter-spacing:.07em;
+  color:var(--ink-3);margin-top:6px;font-weight:600}
+
+/* ---- tables ---- */
+.table-wrap{overflow-x:auto;margin:0 0 1.5em;border:1px solid var(--line);
+  border-radius:var(--radius);background:var(--surface);-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:.855rem;min-width:520px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);
+  vertical-align:top;line-height:1.48}
+th{background:var(--surface-2);font-weight:700;font-size:.74rem;text-transform:uppercase;
+  letter-spacing:.055em;color:var(--ink-2);position:sticky;top:0}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:var(--surface-2)}
+td code{font-size:.82em}
+
+/* ---- callouts ---- */
+.callout{border:1px solid var(--line);border-left:3px solid var(--ink-3);
+  background:var(--surface);border-radius:var(--radius-sm);padding:13px 15px;
+  margin:0 0 1.4em;max-width:var(--measure)}
+.callout__title{font-size:.715rem;text-transform:uppercase;letter-spacing:.085em;
+  font-weight:700;margin:0 0 .45em;color:var(--ink-3)}
+.callout__body>*:last-child{margin-bottom:0}
+.callout__body{font-size:.945rem}
+.callout--tip{border-left-color:var(--accent);background:var(--accent-wash)}
+.callout--tip .callout__title{color:var(--accent-ink)}
+.callout--trap{border-left-color:var(--amber);background:var(--amber-wash)}
+.callout--trap .callout__title{color:var(--amber)}
+.callout--think{border-left-color:var(--violet);background:var(--violet-wash)}
+.callout--think .callout__title{color:var(--violet)}
+.callout--math{border-left-color:var(--ink-2);background:var(--surface-2);font-family:var(--mono)}
+.callout--math .callout__body{font-size:.86rem}
+.callout--when{border-left-color:var(--rose);background:var(--rose-wash)}
+.callout--when .callout__title{color:var(--rose)}
+.callout--note{background:var(--surface-2)}
+
+/* ---- disclosure ---- */
+details{border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface);
+  margin:0 0 10px;overflow:hidden}
+details[open]{box-shadow:var(--shadow)}
+summary{cursor:pointer;padding:10px 14px;font-size:.87rem;font-weight:620;
+  list-style:none;display:flex;align-items:center;gap:9px;color:var(--ink-2)}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";font-family:var(--mono);font-size:1rem;color:var(--accent);
+  width:1em;flex:none;font-weight:700}
+details[open]>summary::before{content:"\2212"}
+details[open]>summary{border-bottom:1px solid var(--line);background:var(--surface-2);color:var(--ink)}
+summary:hover{color:var(--ink)}
+.details__body{padding:14px 16px 4px}
+.details__body>*:last-child{margin-bottom:0}
+
+/* ---- chips / pills ---- */
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.chip{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;
+  border:1px solid var(--line-2);background:var(--surface);font-size:.715rem;
+  color:var(--ink-2);cursor:pointer;font-family:var(--sans);white-space:nowrap}
+.chip:hover{border-color:var(--accent);color:var(--accent-ink)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);
+  color:var(--paper);font-weight:600}
+.tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:.675rem;
+  font-weight:700;letter-spacing:.035em;text-transform:uppercase;border:1px solid transparent}
+.tag--l1{background:var(--ok-wash);color:var(--ok);border-color:var(--ok)}
+.tag--l2{background:var(--accent-wash);color:var(--accent-ink);border-color:var(--accent)}
+.tag--l3{background:var(--amber-wash);color:var(--amber);border-color:var(--amber)}
+.tag--l4{background:var(--rose-wash);color:var(--rose);border-color:var(--rose)}
+.tag--cat{background:var(--surface-2);color:var(--ink-2);border-color:var(--line-2)}
+
+/* ---- practice / case items ---- */
+.caseitem{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 18px;margin-bottom:13px;box-shadow:var(--shadow)}
+.caseitem__head{display:flex;gap:10px;align-items:flex-start;margin-bottom:9px;flex-wrap:wrap}
+.caseitem__id{font-family:var(--mono);font-size:.72rem;color:var(--ink-3);flex:none;
+  padding-top:3px;min-width:3.4em}
+.caseitem__title{font-family:var(--serif);font-size:1.07rem;font-weight:600;flex:1;
+  min-width:200px;line-height:1.35}
+.caseitem__meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:11px}
+.caseitem__prompt{background:var(--surface-2);border-left:3px solid var(--accent);
+  padding:11px 14px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin-bottom:12px;
+  font-size:.95rem;max-width:var(--measure)}
+.bookmark{background:none;border:0;cursor:pointer;color:var(--ink-3);font-size:1.05rem;
+  padding:2px 5px;border-radius:4px;flex:none;line-height:1}
+.bookmark:hover{color:var(--amber);background:var(--surface-2)}
+.bookmark[aria-pressed="true"]{color:var(--amber)}
+
+/* ---- quiz ---- */
+.quiz{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 20px;margin-bottom:15px;box-shadow:var(--shadow)}
+.quiz__q{font-weight:620;margin-bottom:12px;font-size:1rem;max-width:var(--measure)}
+.quiz__opts{display:flex;flex-direction:column;gap:7px;margin-bottom:12px;max-width:62ch}
+.opt{display:flex;gap:9px;align-items:flex-start;padding:9px 12px;border:1px solid var(--line-2);
+  border-radius:var(--radius-sm);background:var(--paper);cursor:pointer;font-size:.9rem;
+  text-align:left;font-family:var(--sans);color:var(--ink);line-height:1.5;width:100%}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--surface-2)}
+.opt__k{font-family:var(--mono);font-weight:700;color:var(--ink-3);flex:none}
+.opt.is-right{border-color:var(--ok);background:var(--ok-wash)}
+.opt.is-right .opt__k{color:var(--ok)}
+.opt.is-wrong{border-color:var(--rose);background:var(--rose-wash)}
+.opt.is-wrong .opt__k{color:var(--rose)}
+.opt:disabled{cursor:default}
+.quiz__exp{font-size:.9rem;background:var(--surface-2);border-radius:var(--radius-sm);
+  padding:11px 14px;border-left:3px solid var(--accent);margin-top:4px}
+.quiz__exp[hidden]{display:none}
+.scorebar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;margin-bottom:18px;
+  position:sticky;top:50px;z-index:20;box-shadow:var(--shadow)}
+.scorebar__n{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--accent-ink);
+  font-variant-numeric:tabular-nums}
+
+/* ---- self-rated exercise ---- */
+.rate{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.rate button{padding:5px 10px;font-size:.74rem;border:1px solid var(--line-2);
+  border-radius:var(--radius-sm);background:var(--paper);cursor:pointer;color:var(--ink-2);
+  font-family:var(--sans)}
+.rate button:hover{border-color:var(--accent)}
+.rate button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);
+  color:var(--paper);font-weight:600}
+
+/* ---- roadmap ---- */
+.day{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:13px 0;
+  border-bottom:1px solid var(--line)}
+.day:last-child{border-bottom:0}
+.day__n{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--accent-ink);
+  text-align:center;background:var(--accent-wash);border-radius:var(--radius-sm);
+  padding:6px 0;height:fit-content;font-variant-numeric:tabular-nums}
+.day__t{font-weight:650;margin-bottom:3px}
+.day__m{font-size:.8rem;color:var(--ink-3);margin-bottom:6px}
+.day__b{font-size:.91rem;color:var(--ink-2)}
+.day__b p{margin-bottom:.5em}
+.check{display:flex;gap:9px;align-items:flex-start;padding:7px 0;font-size:.92rem;
+  border-bottom:1px solid var(--line);cursor:pointer;max-width:var(--measure)}
+.check:last-child{border-bottom:0}
+.check input{margin-top:.35em;accent-color:var(--accent);width:16px;height:16px;flex:none}
+.check.is-done span{color:var(--ink-3);text-decoration:line-through}
+
+/* ---- diagrams ---- */
+.figure{margin:0 0 1.6em;max-width:780px}
+.figure svg{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--radius)}
+.figure figcaption{font-size:.785rem;color:var(--ink-3);margin-top:7px;line-height:1.5}
+.ascii{font-family:var(--mono);font-size:.8rem;line-height:1.55;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--radius);padding:15px 17px;
+  overflow-x:auto;white-space:pre;color:var(--ink-2);margin:0 0 1.5em}
+svg text{font-family:var(--sans)}
+.d-ink{fill:var(--ink)} .d-ink2{fill:var(--ink-2)} .d-ink3{fill:var(--ink-3)}
+.d-acc{fill:var(--accent)} .d-accink{fill:var(--accent-ink)}
+.d-box{fill:var(--surface-2);stroke:var(--line-2)}
+.d-boxacc{fill:var(--accent-wash);stroke:var(--accent)}
+.d-boxamb{fill:var(--amber-wash);stroke:var(--amber)}
+.d-line{stroke:var(--line-2);fill:none}
+.d-lineacc{stroke:var(--accent);fill:none}
+
+/* ---- search results ---- */
+.result{display:block;width:100%;text-align:left;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--radius);padding:13px 16px;
+  margin-bottom:9px;cursor:pointer;font:inherit;color:inherit}
+.result:hover{border-color:var(--accent);box-shadow:var(--shadow)}
+.result__where{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--accent-ink);font-weight:700;margin-bottom:4px}
+.result__t{font-family:var(--serif);font-size:1.02rem;font-weight:600;margin-bottom:4px}
+.result__s{font-size:.85rem;color:var(--ink-3);line-height:1.52;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+mark{background:var(--amber-wash);color:var(--ink);padding:0 2px;border-radius:2px}
+
+/* ---- glossary ---- */
+.gloss{border-bottom:1px solid var(--line);padding:11px 0;max-width:var(--measure)}
+.gloss dt{font-weight:680;margin-bottom:3px;font-size.95rem}
+.gloss dd{margin:0;color:var(--ink-2);font-size:.91rem}
+
+/* ---- misc ---- */
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--accent);
+  color:var(--paper);padding:10px 16px;border-radius:0 0 var(--radius-sm) 0}
+.skip:focus{left:0}
+.toc{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius);
+  padding:15px 18px;margin:0 0 2em;max-width:var(--measure)}
+.toc ol{margin-bottom:0;columns:2;column-gap:28px}
+@media (max-width:620px){.toc ol{columns:1}}
+.toc li{font-size:.87rem}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.toc a:hover{color:var(--accent-ink);text-decoration:underline}
+.pagenav{display:flex;justify-content:space-between;gap:12px;margin-top:3.5em;
+  padding-top:18px;border-top:1px solid var(--line);flex-wrap:wrap}
+.footer{color:var(--ink-3);font-size:.78rem;margin-top:3em;padding-top:16px;
+  border-top:1px solid var(--line);max-width:var(--measure)}
+
+/* ---- responsive ---- */
+@media (max-width:1000px){
+  .app{grid-template-columns:1fr}
+  .sidebar{position:fixed;inset:0 auto 0 0;width:min(86vw,320px);transform:translateX(-101%);
+    transition:transform .25s ease;box-shadow:var(--shadow-lg)}
+  .sidebar.is-open{transform:none}
+  .menu-toggle{display:inline-flex}
+  .scrim{position:fixed;inset:0;background:rgba(0,0,0,.42);z-index:35;border:0;padding:0;
+    cursor:pointer}
+  .scrim[hidden]{display:none}
+  .content{padding-left:16px;padding-right:16px}
+  .scorebar{position:static}
+}
+@media (max-width:620px){
+  body{font-size:16px}
+  .content{padding-top:24px}
+  h2{margin-top:1.9em}
+  .caseitem,.card,.quiz{padding:14px 15px}
+  .caseitem__id{min-width:auto}
+  th,td{padding:8px 10px}
+}
+
+/* ---- print ---- */
+@media print{
+  :root{--paper:#fff;--surface:#fff;--surface-2:#f6f6f6;--surface-3:#eee;--ink:#000;
+    --ink-2:#222;--ink-3:#555;--line:#bbb;--line-2:#999;--accent:#005f58;
+    --accent-ink:#004a44;--accent-wash:#eef6f5;--shadow:none;--shadow-lg:none}
+  .sidebar,.topbar,.scrim,.menu-toggle,.bookmark,.pagenav,.rate,.progressbar,
+  .search,.chips,.btn{display:none!important}
+  .app{display:block}
+  .panel{display:block!important;break-before:page}
+  .panel:first-of-type{break-before:auto}
+  .content{padding:0;max-width:none}
+  body{font-size:10.5pt;line-height:1.48}
+  h2{break-after:avoid;margin-top:1.4em}h3,h4{break-after:avoid}
+  .card,.caseitem,.callout,.table-wrap,.quiz,.figure{break-inside:avoid;
+    border:1px solid #bbb!important}
+  details{border:1px solid #bbb}
+  details>summary{display:none}
+  .details__body{padding:10px 12px}
+  a{text-decoration:none;color:#000}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:8pt;color:#555;
+    word-break:break-all}
+  table{min-width:0;font-size:9pt}
+  .opt{break-inside:avoid}
+  blockquote{break-inside:avoid;border-left:3px solid #666}
+}
+body.printmode .sidebar,body.printmode .topbar{display:none}
+body.printmode .app{display:block}
+body.printmode .panel{display:block!important;margin-bottom:3em}
+body.printmode .content{max-width:none}
+body.printmode details[open]>summary,body.printmode summary{display:flex}
+
+/* standalone-document shell */
+.doc{max-width:860px;margin:0 auto;padding:46px clamp(18px,5vw,54px) 110px}
+.doc__top{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:34px}
+.doc__kicker{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  color:var(--accent-ink);margin-bottom:9px}
+.doc h1{font-size:clamp(1.9rem,1.3rem+2vw,2.7rem);margin-bottom:.35em}
+.doc__meta{font-size:.82rem;color:var(--ink-3);margin-top:14px}
+.doc__toc{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 22px;margin-bottom:40px}
+.doc__toc ol{columns:2;column-gap:30px;margin:0;font-size:.88rem}
+@media (max-width:640px){.doc__toc ol{columns:1}}
+.doc__toc a{text-decoration:none;color:var(--ink-2)}
+.doc__toc a:hover{color:var(--accent-ink);text-decoration:underline}
+.wk{border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;
+  margin-bottom:16px;background:var(--surface);break-inside:avoid}
+.wk__hd{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:8px}
+.wk__id{font-family:var(--mono);font-size:.74rem;color:var(--ink-3)}
+.wk__t{font-family:var(--serif);font-size:1.04rem;font-weight:600;flex:1;min-width:180px}
+.wk__prompt{background:var(--surface-2);border-left:3px solid var(--accent);padding:11px 14px;
+  font-size:.94rem;margin-bottom:12px}
+.rule{border:0;border-top:1px solid var(--line-2);margin:0 0 7px;height:0}
+.ruled{margin:10px 0 4px}
+.ruled .rule{margin-bottom:22px}
+.lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700;
+  color:var(--ink-3);margin:14px 0 6px}
+.scorebox{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:8px;
+  margin-top:12px}
+.scorecell{border:1px solid var(--line-2);border-radius:var(--radius-sm);padding:7px 9px;
+  font-size:.76rem;color:var(--ink-2)}
+.scorecell span{display:inline-block;width:1.25em;height:1.25em;border:1px solid var(--line-2);
+  border-radius:3px;margin-left:3px;vertical-align:-.22em}
+@media print{
+  .doc{padding:0;max-width:none}
+  .wk{break-inside:avoid;border:1px solid #bbb}
+  .doc__toc{break-after:page}
+  h2{break-before:page;break-after:avoid;padding-top:0}
+  h2:first-of-type{break-before:avoid}
+  .printhide{display:none}
+}
+</style>
+</head>
+<body>
+<main class="doc">
+<div class="doc__top"><p class="doc__kicker">Case Study Mastery</p><h1>Research sources</h1><p class="lede">Every source consulted in building the playbook — what it contributed, how reliable it is, and whether its link was verified.</p><p class="doc__meta">A companion to <strong>Case Study Mastery — Interactive Guide</strong>. 43 sources across 9 topics.</p></div><h3 id="h-how-this-register-was-built-and-how-to-read-it">How this register was built, and how to read it</h3>
+<p>Every source here was consulted during the writing of this guide. The <strong>Verified</strong> column is honest about something that matters:</p>
+<ul><li><strong>✓ Live</strong> — the URL was fetched during the research pass for this guide and returned the content described. 29 of the 54 sources below.</li><li><strong>Canonical</strong> — a well-known, stable URL for a source whose content is relied on, but which was <strong>not fetched during this build</strong> because direct outbound requests were blocked by the build environment's network policy. These are high-confidence references, not verified links. Confirm before citing one in anything consequential.</li></ul>
+<p>Two books (Minto's <em>Pyramid Principle</em>, Rumelt's <em>Good Strategy Bad Strategy</em>) have no canonical free URL and are listed with a publisher or reference page.</p>
+<div class="callout callout--note"><p class="callout__title">What was deliberately not done</p><div class="callout__body"><p>No quotations have been invented, no statistics have been attributed to sources that do not contain them, and no company's internal practice is described as fact unless the source is that company. Where this guide states a number — market sizes, conversion rates, cost structures in worked cases — it is <strong>either labelled as a public approximation or explicitly invented for arithmetic</strong>, as stated in each case. Several widely repeated interview-prep claims were left out because no credible source for them could be found.</p></div></div>
+<h3 id="h-reliability-in-plain-terms">Reliability, in plain terms</h3>
+<div class="table-wrap"><table><thead><tr><th>Tier</th><th>What it means</th><th>Examples here</th></tr></thead><tbody><tr><td><strong>High — primary</strong></td><td>The originator describing their own framework, or rigorous research</td><td>Intercom on RICE, Torres on opportunity trees, Kohavi on experiments, Porter in HBR</td></tr><tr><td><strong>High — authority</strong></td><td>Standards bodies and long-established research organisations</td><td>ASQ, Lean Enterprise Institute, Nielsen Norman Group</td></tr><tr><td><strong>High — practitioner</strong></td><td>Experienced practitioners writing from direct experience; opinion, but informed</td><td>Balfour, Cagan, Chen, Lenny's Newsletter</td></tr><tr><td><strong>Medium-high</strong></td><td>Accurate secondary descriptions, well referenced</td><td>ProductPlan glossaries, My Consulting Coach</td></tr><tr><td><strong>Medium</strong></td><td>Commercial content whose framing favours the publisher</td><td>Interview-prep sites, vendor blogs</td></tr></tbody></table></div>
+<p><strong>The cross-validation rule used throughout:</strong> any framework presented as established appears in at least two independent sources, and ideally one primary. RICE is described from four. MECE from five. Where only one source exists, the guide says so, or presents the idea as a heuristic rather than a principle.</p><h2>Problem structuring, MECE and issue trees</h2><div class="table-wrap"><table><thead><tr><th>Source</th><th>Author / org</th><th>Key contribution</th><th>Reliability</th><th>Verified</th></tr></thead><tbody><tr><td><a href="https://www.craftingcases.com/issue-tree-guide/" target="_blank" rel="noopener">Issue Trees: The Definitive Guide</a></td><td>Crafting Cases</td><td>The clearest practical treatment of issue trees, and explicitly pushes back on the idea that slapping the word &#x27;hypothesis&#x27; on a guess makes it hypothesis-driven. Informed Ch 5.</td><td>High for practice; a commercial training site, so treat its taxonomy as one useful convention rather than canon.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://caseinterview.com/issue-tree" target="_blank" rel="noopener">Issue Tree</a></td><td>caseinterview.com (Victor Cheng)</td><td>Frames an issue tree as a testable logical argument rather than a diagram, and is candid that a pre-built deep tree can be the wrong shape. Informed Ch 5&#x27;s guidance on depth.</td><td>High for interview convention; practitioner opinion rather than research.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://www.mbacrystalball.com/blog/strategy/mece-framework/" target="_blank" rel="noopener">MECE Framework</a></td><td>MBA Crystal Ball</td><td>Distinguishes issue, decision and hypothesis trees, and traces MECE to Barbara Minto&#x27;s Pyramid Principle. Used for the tree taxonomy in Ch 5.</td><td>Medium-high. Secondary source, well referenced.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://www.myconsultingcoach.com/case-interview-mece" target="_blank" rel="noopener">MECE Principle: Meaning, Examples and Case Interview Use</a></td><td>My Consulting Coach</td><td>Cross-validated the MECE definition and the &#x27;problem-driven structure&#x27; alternative.</td><td>Medium-high; commercial but consistent with other sources.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://www.roadtooffer.com/blog/issue-tree-case-interview" target="_blank" rel="noopener">Issue Tree: Guide, Examples and MECE Method</a></td><td>Road to Offer</td><td>Source for the 60–90 second silent structuring convention, and the diagnostic-vs-decision tree distinction used in Ch 3&#x27;s triage.</td><td>Medium. Commercial; convention rather than evidence.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://firmsconsulting.com/build-hypotheses-mece-with-decision-tree/" target="_blank" rel="noopener">Using Decision Trees to Build MECE Hypotheses</a></td><td>Firmsconsulting</td><td>Cross-validation on hypothesis structuring.</td><td>Medium.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://en.wikipedia.org/wiki/MECE_principle" target="_blank" rel="noopener">MECE principle</a></td><td>Wikipedia</td><td>Attribution of MECE&#x27;s popularisation to Barbara Minto and its older logical antecedents.</td><td>Medium — good for attribution, not for method.</td><td><span class="tag tag--l3">Canonical</span></td></tr><tr><td><a href="https://www.barbaraminto.com/" target="_blank" rel="noopener">The Pyramid Principle</a></td><td>Barbara Minto (book)</td><td>The origin of MECE and of top-down communication structure. The underlying text for Ch 5 and for the signposting advice in Ch 30.</td><td>High — primary source. Book, not a web page.</td><td><span class="tag tag--l3">Canonical</span></td></tr></tbody></table></div><h2>Case interview practice and firm guidance</h2><div class="table-wrap"><table><thead><tr><th>Source</th><th>Author / org</th><th>Key contribution</th><th>Reliability</th><th>Verified</th></tr></thead><tbody><tr><td><a href="https://www.mckinsey.com/careers/interviewing/case-interviews" target="_blank" rel="noopener">Case interviews (official preparation)</a></td><td>McKinsey &amp; Company</td><td>First-party statement of what the firm says it assesses. The most authoritative source for consulting-case conventions.</td><td>High for that firm&#x27;s own process; marketing framing.</td><td><span class="tag tag--l3">Canonical</span></td></tr><tr><td><a href="https://www.bain.com/careers/interview-prep/" target="_blank" rel="noopener">Interview preparation</a></td><td>Bain &amp; Company</td><td>First-party case guidance; cross-check against McKinsey&#x27;s.</td><td>High for the firm&#x27;s own process.</td><td><span class="tag tag--l3">Canonical</span></td></tr><tr><td><a href="https://www.bcg.com/careers/interview-prep" target="_blank" rel="noopener">Interview preparation</a></td><td>Boston Consulting Group</td><td>First-party case guidance.</td><td>High for the firm&#x27;s own process.</td><td><span class="tag tag--l3">Canonical</span></td></tr><tr><td><a href="https://www.hbs.edu/mba/academic-experience/Pages/the-hbs-case-method.aspx" target="_blank" rel="noopener">The case method</a></td><td>Harvard Business School</td><td>Background for Ch 1&#x27;s account of why the format exists and why there is no answer key.</td><td>High for the pedagogy; HBS describing its own method.</td><td><span class="tag tag--l3">Canonical</span></td></tr><tr><td><a href="https://www.preplounge.com/en/bootcamp.php/case-cracking-toolbox/structure-your-thoughts/mece-principle" target="_blank" rel="noopener">Case cracking toolbox: structure your thoughts</a></td><td>PrepLounge</td><td>Widely used practice platform; useful for the volume and variety of peer-practice cases.</td><td>Medium. Community content of uneven quality.</td><td><span class="tag tag--l3">Canonical</span></td></tr></tbody></table></div><h2>Product sense and product cases</h2><div class="table-wrap"><table><thead><tr><th>Source</th><th>Author / org</th><th>Key contribution</th><th>Reliability</th><th>Verified</th></tr></thead><tbody><tr><td><a href="https://www.lennysnewsletter.com/p/the-definitive-guide-to-mastering" target="_blank" rel="noopener">The definitive guide to mastering product sense interviews</a></td><td>Lenny&#x27;s Newsletter</td><td>Practitioner consensus on what product-sense interviews actually test. Informed Ch 2 and the framing of Ch 14–15.</td><td>High for current industry practice; practitioner experience, not research.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://productschool.com/blog/skills/circles-framework-guide" target="_blank" rel="noopener">A Guide to the CIRCLES Framework</a></td><td>Product School</td><td>Reference for CIRCLES as catalogued in Ch 10.</td><td>Medium. Vendor content; framework description is accurate.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://www.productplan.com/glossary/circles-method" target="_blank" rel="noopener">CIRCLES Method</a></td><td>ProductPlan glossary</td><td>Cross-validation of the CIRCLES steps and attribution to Lewis C. Lin.</td><td>Medium-high for definitions.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://igotanoffer.com/blogs/product-manager/product-improvement-questions" target="_blank" rel="noopener">How to crack product improvement questions</a></td><td>IGotAnOffer</td><td>Source of the three-step product-improvement convention that Ch 15 builds on and then argues past.</td><td>Medium. Commercial interview-prep content.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://www.svpg.com/product-discovery/" target="_blank" rel="noopener">Product discovery</a></td><td>Silicon Valley Product Group (Marty Cagan)</td><td>The discovery-vs-delivery distinction and the argument against output-based roadmaps. Behind Ch 8 and the roadmap guidance in Ch 3.</td><td>High for practitioner authority; opinion, strongly held and widely adopted.</td><td><span class="tag tag--l3">Canonical</span></td></tr><tr><td><a href="https://www.producttalk.org/opportunity-solution-trees/" target="_blank" rel="noopener">Opportunity Solution Trees</a></td><td>Product Talk (Teresa Torres)</td><td>The outcome → opportunity → solution → experiment structure catalogued in Ch 10 and used in Ch 8&#x27;s prioritisation logic.</td><td>High. Primary source from the originator.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://www.producttalk.org/glossary-discovery-opportunity-solution-tree/" target="_blank" rel="noopener">Opportunity Solution Tree — definition</a></td><td>Product Talk</td><td>Concise definition used for the glossary entry.</td><td>High. Primary source.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://hbr.org/2016/09/know-your-customers-jobs-to-be-done" target="_blank" rel="noopener">Know Your Customers&#x27; Jobs To Be Done</a></td><td>Harvard Business Review (Christensen et al.)</td><td>The canonical JTBD statement, including the milkshake example used in Ch 8.</td><td>High. Peer-reviewed-adjacent; HBR with the framework&#x27;s originators.</td><td><span class="tag tag--l3">Canonical</span></td></tr></tbody></table></div><h2>Growth, retention and loops</h2><div class="table-wrap"><table><thead><tr><th>Source</th><th>Author / org</th><th>Key contribution</th><th>Reliability</th><th>Verified</th></tr></thead><tbody><tr><td><a href="https://www.reforge.com/blog/growth-loops" target="_blank" rel="noopener">Growth Loops are the New Funnels</a></td><td>Reforge (Brian Balfour)</td><td>The loops-vs-funnels argument that Ch 16 and the Ch 6 figure are built on. Explicit that funnels are too micro a view for &#x27;how does this product grow&#x27;.</td><td>High for current practice; commercial content marketing for a paid programme, so the framing favours the product.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://blog.brianbalfour.com/p/the-four-fits-a-growth-framework" target="_blank" rel="noopener">The Four Fits: A Growth Framework</a></td><td>Brian Balfour</td><td>Market-product, product-channel, channel-model and model-market fit — the coherence check used in Ch 10 and in the GTM consistency argument in Ch 22.</td><td>High for practitioner authority.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://www.growthtalent.org/insights/brian-balfour-on-why-retention-beats-acquisition-every-time" target="_blank" rel="noopener">Why Retention Beats Acquisition Every Time</a></td><td>GrowthTalent (interview with Balfour)</td><td>Source for retention-first ordering, the use-case map for defining a retention metric, and the Miro per-seat-pricing example used in Ch 23. Directly informed Ch 16.</td><td>Medium-high. Secondary interview, but close paraphrase of the primary author.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://andrewchen.com/" target="_blank" rel="noopener">andrewchen.com</a></td><td>Andrew Chen</td><td>Long-running writing on growth, network effects and marketplace cold start. Background for Ch 16 and worked case C-08.</td><td>High for practitioner authority; blog essays.</td><td><span class="tag tag--l3">Canonical</span></td></tr></tbody></table></div><h2>Metrics, experimentation and analytics</h2><div class="table-wrap"><table><thead><tr><th>Source</th><th>Author / org</th><th>Key contribution</th><th>Reliability</th><th>Verified</th></tr></thead><tbody><tr><td><a href="https://amplitude.com/blog/product-north-star-metric" target="_blank" rel="noopener">North star metric</a></td><td>Amplitude</td><td>Reference for the NSM and input-metric structure in Ch 12.</td><td>Medium-high. Vendor content; the framework is widely adopted and the vendor benefits from it.</td><td><span class="tag tag--l3">Canonical</span></td></tr><tr><td><a href="https://www.quantummetric.com/blog/conversion-funnel-analysis-fix-drop-offs" target="_blank" rel="noopener">Conversion funnel analysis: identify and fix drop-off points</a></td><td>Quantum Metric</td><td>Cross-validation on segmenting funnel data by device before concluding, used in Ch 9 and worked case C-05.</td><td>Medium. Vendor content; the segmentation point is sound and widely corroborated.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://www.productboard.com/product-management-prompts-library/funnel-analysis-diagnostic/" target="_blank" rel="noopener">Funnel analysis diagnostic</a></td><td>Productboard</td><td>Cross-validation on systematic diagnosis of a sudden metric change.</td><td>Medium. Vendor content.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://exp-platform.com/" target="_blank" rel="noopener">Experimentation platform / Kohavi, Tang &amp; Xu</a></td><td>ExP (Microsoft) and the ABP book</td><td>The standard reference on online controlled experiments: peeking, power, guardrails and practical pitfalls. Behind Ch 12 and Test 3 of the assessments.</td><td>High. Primary research from a team running experiments at very large scale.</td><td><span class="tag tag--l3">Canonical</span></td></tr><tr><td><a href="https://www.evanmiller.org/how-not-to-run-an-ab-test.html" target="_blank" rel="noopener">How Not To Run An A/B Test</a></td><td>Evan Miller</td><td>The clearest short explanation of why repeated peeking inflates false positives. Used directly in the Test 3 item on A/B interpretation.</td><td>High. Statistically rigorous and widely cited.</td><td><span class="tag tag--l3">Canonical</span></td></tr></tbody></table></div><h2>Prioritisation</h2><div class="table-wrap"><table><thead><tr><th>Source</th><th>Author / org</th><th>Key contribution</th><th>Reliability</th><th>Verified</th></tr></thead><tbody><tr><td><a href="https://www.intercom.com/blog/rice-simple-prioritization-for-product-managers" target="_blank" rel="noopener">RICE: Simple prioritization for product managers</a></td><td>Intercom (Sean McBride)</td><td>The primary source for RICE, including the exact impact and confidence scales reproduced in Ch 11. Notably candid that scores are a conversation tool.</td><td>High. Primary source from the originating team.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://www.productplan.com/glossary/rice-scoring-model" target="_blank" rel="noopener">RICE Scoring Model</a></td><td>ProductPlan glossary</td><td>Cross-validation of RICE&#x27;s history and mechanics.</td><td>Medium-high.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://productschool.com/blog/product-fundamentals/rice-framework" target="_blank" rel="noopener">How to Use the RICE Framework</a></td><td>Product School</td><td>Third independent description of RICE; used to confirm the scales are reported consistently.</td><td>Medium.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://nealcabage.com/rice-scoring/" target="_blank" rel="noopener">RICE Scoring Method</a></td><td>Neal Cabage</td><td>Fourth cross-check on the confidence scale.</td><td>Medium.</td><td><span class="tag tag--l1">✓ Live</span></td></tr></tbody></table></div><h2>Operations, quality and root cause</h2><div class="table-wrap"><table><thead><tr><th>Source</th><th>Author / org</th><th>Key contribution</th><th>Reliability</th><th>Verified</th></tr></thead><tbody><tr><td><a href="https://www.goldrattconsulting.com/wp/theory-of-constraints/" target="_blank" rel="noopener">Theory of Constraints</a></td><td>Goldratt Consulting</td><td>The identify-exploit-subordinate-elevate-repeat sequence used in Ch 24 and practice case P-47, including &#x27;exploit before you elevate&#x27;.</td><td>High for the method; the consultancy founded by its originator, so promotional in tone.</td><td><span class="tag tag--l3">Canonical</span></td></tr><tr><td><a href="https://asq.org/quality-resources/fishbone" target="_blank" rel="noopener">Fishbone (Ishikawa) diagram</a></td><td>American Society for Quality</td><td>Standard reference for the cause-category method in Ch 9, including the Measurement category that catches metric artefacts.</td><td>High. Professional standards body.</td><td><span class="tag tag--l3">Canonical</span></td></tr><tr><td><a href="https://www.lean.org/lexicon-terms/5-whys/" target="_blank" rel="noopener">5 Whys</a></td><td>Lean Enterprise Institute</td><td>Standard definition and the Toyota Production System provenance used in Ch 9.</td><td>High. Authoritative on lean practice.</td><td><span class="tag tag--l3">Canonical</span></td></tr><tr><td><a href="https://www.nngroup.com/articles/journey-mapping-101/" target="_blank" rel="noopener">Journey mapping 101</a></td><td>Nielsen Norman Group</td><td>Reference for journey-map structure in Ch 8.</td><td>High. Long-standing UX research organisation.</td><td><span class="tag tag--l3">Canonical</span></td></tr></tbody></table></div><h2>Strategy</h2><div class="table-wrap"><table><thead><tr><th>Source</th><th>Author / org</th><th>Key contribution</th><th>Reliability</th><th>Verified</th></tr></thead><tbody><tr><td><a href="https://hbr.org/2008/01/the-five-competitive-forces-that-shape-strategy" target="_blank" rel="noopener">The Five Competitive Forces That Shape Strategy</a></td><td>Harvard Business Review (Porter)</td><td>Porter&#x27;s own restatement of five forces, catalogued in Ch 10 with its limitations for platform businesses.</td><td>High. Primary source, HBR.</td><td><span class="tag tag--l3">Canonical</span></td></tr><tr><td><a href="https://hbr.org/1979/03/how-competitive-forces-shape-strategy" target="_blank" rel="noopener">How Competitive Forces Shape Strategy</a></td><td>Harvard Business Review (Porter, 1979)</td><td>The original 1979 article, for provenance.</td><td>High. Primary source.</td><td><span class="tag tag--l3">Canonical</span></td></tr><tr><td><a href="https://www.goodreads.com/book/show/11721966-good-strategy-bad-strategy" target="_blank" rel="noopener">Good Strategy Bad Strategy</a></td><td>Richard Rumelt (book)</td><td>The diagnosis-guiding-policy-coherent-action structure, and the argument that most &#x27;strategy&#x27; is a list of goals. Behind Ch 19&#x27;s insistence on deciding rather than describing.</td><td>High. Widely regarded primary text. Book, not a web page.</td><td><span class="tag tag--l3">Canonical</span></td></tr></tbody></table></div><h2>Design and discovery methods</h2><div class="table-wrap"><table><thead><tr><th>Source</th><th>Author / org</th><th>Key contribution</th><th>Reliability</th><th>Verified</th></tr></thead><tbody><tr><td><a href="https://www.ideou.com/blogs/inspiration/what-is-design-thinking" target="_blank" rel="noopener">What is design thinking?</a></td><td>IDEO U</td><td>Reference for the design-thinking stages catalogued in Ch 10, where the guide recommends borrowing only its problem-definition discipline for time-boxed cases.</td><td>Medium-high for the method; commercial education provider.</td><td><span class="tag tag--l3">Canonical</span></td></tr><tr><td><a href="https://www.mindtheproduct.com/" target="_blank" rel="noopener">Mind the Product</a></td><td>Mind the Product</td><td>Broad practitioner community writing; useful for cross-checking whether a convention is widely held or one author&#x27;s preference.</td><td>Medium. Multi-author, uneven.</td><td><span class="tag tag--l3">Canonical</span></td></tr></tbody></table></div><h2>Learning science and memory</h2><div class="table-wrap"><table><thead><tr><th>Source</th><th>Author / org</th><th>Key contribution</th><th>Reliability</th><th>Verified</th></tr></thead><tbody><tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/26173288/" target="_blank" rel="noopener">Improving Students&#x27; Learning With Effective Learning Techniques</a></td><td>Dunlosky, Rawson, Marsh, Nathan &amp; Willingham — Psychological Science in the Public Interest</td><td>The monograph behind this guide&#x27;s whole approach to memory. Evaluates ten techniques and rates **practice testing** and **distributed practice** as high utility, while rereading, highlighting and summarising rate low. Directly shaped the Recall chapter and Recall mode.</td><td>High. Peer-reviewed meta-review in a major journal.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/11515286/" target="_blank" rel="noopener">The magical number 4 in short-term memory</a></td><td>Nelson Cowan — PubMed record</td><td>The revision of Miller&#x27;s 7±2 down to roughly four chunks. Why every memorable structure in this guide is built in groups of three to five rather than seven.</td><td>High. Peer-reviewed; widely replicated.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/" target="_blank" rel="noopener">The Magical Mystery Four: How is Working Memory Capacity Limited, and Why?</a></td><td>Nelson Cowan — PMC</td><td>Open-access treatment of the same limit, with the mechanism. Used to cross-check the chunking guidance.</td><td>High. Open-access peer-reviewed.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two" target="_blank" rel="noopener">The Magical Number Seven, Plus or Minus Two</a></td><td>George A. Miller (1956), via Wikipedia</td><td>The original claim and its subsequent revision, for provenance and for the honest note that the famous number is not the current one.</td><td>Medium-high for provenance; the primary paper is the authority.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://bjorklab.psych.ucla.edu/research/" target="_blank" rel="noopener">Desirable difficulties / Bjork Learning and Forgetting Lab</a></td><td>Robert A. Bjork, UCLA</td><td>The framing that retrieval effort is the mechanism rather than a cost — used for the honest warning that this method feels worse than rereading while working better.</td><td>High for the concept; a lab page rather than a single paper.</td><td><span class="tag tag--l3">Canonical</span></td></tr></tbody></table></div><h2>Consulting case formats and archetypes</h2><div class="table-wrap"><table><thead><tr><th>Source</th><th>Author / org</th><th>Key contribution</th><th>Reliability</th><th>Verified</th></tr></thead><tbody><tr><td><a href="https://managementconsulted.com/case-interview/" target="_blank" rel="noopener">Case Interview: Complete Prep Guide</a></td><td>Management Consulted</td><td>Cross-check on the consulting case archetypes, the within-case question types (estimation, chart interpretation, brainstorming), and the interviewer-led versus candidate-led distinction. Informed the consulting-vs-PM chapter and several new case-type chapters.</td><td>Medium. Commercial prep provider, so framing favours their coaching; the format details are corroborated elsewhere.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://umbrex.com/resources/the-future-consultants-guide-to-case-interviews/the-different-types-of-case-interviews/" target="_blank" rel="noopener">The Different Types of Case Interviews</a></td><td>Umbrex</td><td>Independent corroboration on candidate-led, interviewer-led, written and virtual formats.</td><td>Medium. Practitioner network.</td><td><span class="tag tag--l3">Canonical</span></td></tr><tr><td><a href="https://www.roadtooffer.com/blog/case-interview-frameworks-complete-guide" target="_blank" rel="noopener">Case Interview Frameworks: 7 Consulting Frameworks</a></td><td>Road to Offer</td><td>Cross-check on which archetypes are actually common: profitability, market entry, M&amp;A, pricing, 3Cs, 4Ps, Porter. Used in the coverage audit to find missing chapters.</td><td>Medium. Commercial.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://www.craftingcases.com/case-interview-examples/" target="_blank" rel="noopener">Case Interview Examples: the best worked examples</a></td><td>Crafting Cases</td><td>Used to sanity-check how exhibit-interpretation and brainstorming questions appear inside real cases, and the warning that &#x27;getting to the chart&#x27; is not the goal.</td><td>Medium-high. Commercial, and unusually candid about what weak answers look like.</td><td><span class="tag tag--l1">✓ Live</span></td></tr><tr><td><a href="https://igotanoffer.com/en/advice/types-of-case-interview" target="_blank" rel="noopener">10 Types of Case Interviews</a></td><td>IGotAnOffer</td><td>Fourth independent list of consulting archetypes, used to confirm the coverage map had no missing family.</td><td>Medium. Commercial prep content.</td><td><span class="tag tag--l3">Canonical</span></td></tr><tr><td><a href="https://questromfeld.bu.edu/blog/2026/04/28/consulting-case-interview-guide-with-examples-2025/" target="_blank" rel="noopener">Consulting Case Interview Guide</a></td><td>BU Questrom Feld Center</td><td>A university careers-office source, useful as a non-commercial cross-check on the within-case question types.</td><td>Medium-high. Institutional, non-commercial.</td><td><span class="tag tag--l1">✓ Live</span></td></tr></tbody></table></div>
+</main>
+</body>
+</html>
